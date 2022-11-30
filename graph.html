@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Ananlise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style_graph.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+</html>
+
+<header class="header">
+  <a class="header__logo" href="index.html"
+    ><i class="fa-solid fa-arrow-left"></i>назад</a
+  >
+</header>
+
+<body>
+  <div class="graph">
+    <h1 class="graph__title">Построение отчёта</h1>
+    <div class="container">
+      <div class="graph__window">
+        <canvas id="hui"></canvas>
+      </div>
+      <div class="select">
+        <h6
+          style="
+            width: 200;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0 10 10;
+          "
+        >
+          Выберите тип графика
+        </h6>
+        <select>
+          <option value="1">Линейный</option>
+          <option value="2">Линейный с областями</option>
+          <option value="3">Линейчатый</option>
+          <option value="4">Круговой</option>
+          <option value="5">"Радар"</option>
+          <option value="6">Полярный</option>
+          <option value="7">Пузырьковый</option>
+          <option value="8">Точечная диаграмма рассеивания</option>
+        </select>
+      </div>
+      <div class="vvod">
+        <div class="graph__vvod">
+          <input type="text" class="str1" id="x1" value="10" />
+          <input type="text" class="str1" id="x2" value="160" />
+        </div>
+
+        <div class="graph__vvod">
+          <input type="text" class="str2" id="y3" />
+          <input type="text" class="str2" id="y4" />
+        </div>
+
+        <p>
+          <input type="button" value="Показать" onclick="isEmail()" />
+        </p>
+
+        <p>
+          <input type="button" value="Сохранить на комп" onclick="saveImg()" />
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./kiruha_the_best.js"></script>
+  <!-- <script src="./toggler.js"></script> -->
+</body>
