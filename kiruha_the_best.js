@@ -13,7 +13,9 @@ function isEmail() {
   ];
 
   let x1 = document.getElementById("x1").value,
-    x2 = document.getElementById("x2").value;
+    x2 = document.getElementById("x2").value,
+    y1 = document.getElementById("y1").value,
+    y2 = document.getElementById("y2").value;
 
   new Chart("hui", {
     type: "scatter",
@@ -29,8 +31,8 @@ function isEmail() {
     options: {
       legend: { display: false },
       scales: {
-        xAxes: [{ ticks: { min: x1, max: x2 } }],
-        yAxes: [{ ticks: { min: 6, max: 16 } }],
+        xAxes: [{ ticks: { min: Number(x1), max: Number(x2) } }],
+        yAxes: [{ ticks: { min: Number(y1), max: Number(y2) } }],
       },
     },
   });
@@ -40,7 +42,8 @@ function scatterChart() {}
 
 function saveImg() {
   let a = document.createElement("a");
-  a.download = "111.png";
+  a.download = "11document.getElementById("y1").value,
+  y2 = document.getElementById("y2").value;1.png";
   a.href = canvas.toDataURL("image/png");
   a.click();
 }
