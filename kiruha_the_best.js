@@ -42,8 +42,7 @@ function scatterChart() {}
 
 function saveImg() {
   let a = document.createElement("a");
-  a.download = "11document.getElementById("y1").value,
-  y2 = document.getElementById("y2").value;1.png";
+  a.download = "screenshot.png";
   a.href = canvas.toDataURL("image/png");
   a.click();
 }
