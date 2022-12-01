@@ -52,7 +52,7 @@ function isShow() {
 
     let chartHandler = new ChartHandler();
     if (sel.value == 1) {
-      chartHandler.lineChart(canvas, x1, x2, y1, y2, xyValues);
+      chartHandler.lineChart(x1, x2, y1, y2, xyValues);
     }
     else if (sel.value == 2) {
       chartHandler.radarChart(x1, x2, y1, y2, xyValues);
