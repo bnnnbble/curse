@@ -35,8 +35,8 @@
   <div class="graph">
     <h1 class="graph__title">Построение отчёта</h1>
     <div class="container">
-      <div class="graph__window">
-        <canvas id="graphik"></canvas>
+      <div id="graph__window" class="graph__window">
+        <canvas id="canvas"></canvas> 
       </div>
       <div class="select">
         <h6
@@ -73,16 +73,26 @@
         </div>
 
         <p>
-          <input type="button" value="Показать" onclick="isShow()" />
+          <input type="button" value="Показать" id="DrawBtn"/>
         </p>
 
         <p>
-          <input type="button" value="Сохранить на комп" onclick="saveImg()" />
+          <input type="button" value="Сохранить на комп" id="makeScreenshot" />
+        </p>
+
+        <p>
+          <input type="file" accept=".xlsx"  onchange="showFile(this)">
+
+          <script>
+          function showFile(input) {
+            console.log(input.files[0])
+          }
+          </script>
         </p>
       </div>
     </div>
   </div>
 
-  <script src="./kiruha_the_best.js"></script>
+  <script type="module" src="./script/kiruha_the_best.js"></script>
   <!-- <script src="./toggler.js"></script> -->
 </body>
