@@ -36,7 +36,7 @@
     <h1 class="graph__title">Построение отчёта</h1>
     <div class="container">
       <div class="graph__window">
-        <canvas id="hui"></canvas>
+        <canvas id="graphik"></canvas>
       </div>
       <div class="select">
         <h6
@@ -50,15 +50,15 @@
         >
           Выберите тип графика
         </h6>
-        <select>
+        <select id="sel">
           <option value="1">Линейный</option>
-          <option value="2">Линейный с областями</option>
+          <option value="2">"Радар"</option>
           <option value="3">Линейчатый</option>
-          <option value="4">Круговой</option>
-          <option value="5">"Радар"</option>
+          <option value="4">Точечная диаграмма рассеивания</option>
+          <!-- <option value="5">Линейный с областями</option>
           <option value="6">Полярный</option>
           <option value="7">Пузырьковый</option>
-          <option value="8">Точечная диаграмма рассеивания</option>
+          <option value="8">Круговой</option> -->
         </select>
       </div>
       <div class="vvod">
@@ -68,12 +68,12 @@
         </div>
 
         <div class="graph__vvod">
-          <input type="number" class="str2" id="y1" value="6"/>
-          <input type="number" class="str2" id="y2" value="16"/>
+          <input type="number" class="str2" id="y1" value="6" />
+          <input type="number" class="str2" id="y2" value="16" />
         </div>
 
         <p>
-          <input type="button" value="Показать" onclick="isEmail()" />
+          <input type="button" value="Показать" onclick="isShow()" />
         </p>
 
         <p>

@@ -227,7 +227,7 @@ h5 {
 }
 
 .header__logo:hover {
-  color: #ff703c;
+  color: white;
 }
 
 .header__logo::after {
