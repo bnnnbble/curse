@@ -48,10 +48,7 @@ export default class ChartHandler{
           },
         });
       }
-    radarChart(rxValues, ryValues, barColors) {
-        var rxValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-        var ryValues = [55, 49, 44, 24, 15];
-        var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
+    radarChart( ryValues,rxValues, barColors) {
         this.destroyer()
         this.chart = new Chart("canvas", {
           type: "pie",
@@ -73,9 +70,6 @@ export default class ChartHandler{
         });
     }
     barChart(bxValues, byValues, barColors) {
-        var bxValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-        var byValues = [55, 49, 44, 24, 15];
-        var barColors = ["red", "green", "blue", "orange", "brown"];
         this.destroyer()
         this.chart = new Chart("canvas", {
           type: "bar",

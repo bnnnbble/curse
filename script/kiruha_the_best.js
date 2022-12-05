@@ -16,6 +16,7 @@ if (btn) {
 
 function isShow() {
   let data = getCookie("reading_xlsx_data")
+  let ryValues =[];
   if(data == undefined || data == ""){
     let xyValues = [
       { x: 10, y: 7 },
@@ -30,13 +31,14 @@ function isShow() {
     data = JSON.parse(data);
     let xyValues = []
     for(let key in data){
-      xyValues.push({x: data[key]});
+      xyValues.push({x: Number(data[key])});
+      ryValues.push(key);
     }
-    drawerConfugurator(xyValues);
+    drawerConfugurator(xyValues, ryValues);
   }
 }
 
-function drawerConfugurator(xyValues){
+function drawerConfugurator(xyValues, ryValues){
   try {
     canvas.style.display = "";
     canvas.getContext('2d'); 
@@ -62,19 +64,28 @@ function drawerConfugurator(xyValues){
 
     let sel = document.getElementById("sel");
 
-    var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
-
-    let chartHandler = new ChartHandler();
+    var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145", "#1e7145", "#1e7145", "#1e7145", "#1e7145", "#1e7145"];
+    let chartHandler;
     if (sel.value == 1) {
+      chartHandler = new ChartHandler();
       chartHandler.lineChart(x1, x2, y1, y2, xyValues);
     }
     else if (sel.value == 2) {
-      chartHandler.radarChart(x1, x2, y1, y2, xyValues);
+      chartHandler = new ChartHandler();
+      let arr = []
+      for(let value in xyValues){
+        let a = xyValues[value];
+        a = a['x']
+        arr.push(Number(a))
+      }
+      chartHandler.radarChart(arr, ryValues, barColors);
     }
     else if (sel.value == 3) {
+      chartHandler = new ChartHandler();
       chartHandler.barChart(x1, x2, y1, y2,barColors);
     }
     else if (sel.value == 4) {
+      chartHandler = new ChartHandler();
       chartHandler.scatterChart(x1, x2, y1, y2,barColors);
     }
   } catch(e) {
