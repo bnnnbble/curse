@@ -1,5 +1,7 @@
 import ChartHandler from "./ChartHandler.js"
-
+window.onload = function(){
+  document.cookie = encodeURIComponent("reading_xlsx_data") + '=';
+}
 let check = false;
 
 let canvas = document.getElementById("canvas");
@@ -13,20 +15,32 @@ if (btn) {
 }
 
 function isShow() {
-  try {
-
-    canvas.style.display = "";
-    canvas.getContext('2d'); 
-    check = true;
-
-    var xyValues = [
+  let data = getCookie("reading_xlsx_data")
+  if(data == undefined || data == ""){
+    let xyValues = [
       { x: 10, y: 7 },
       { x: 60, y: 8 },
       { x: 70, y: 8 },
       { x: 20, y: 9 },
       { x: 90, y: 9 },
       { x: 100, y: 9 },
-    ];
+    ]
+    drawerConfugurator(xyValues);
+  }else{
+    data = JSON.parse(data);
+    let xyValues = []
+    for(let key in data){
+      xyValues.push({x: data[key]});
+    }
+    drawerConfugurator(xyValues);
+  }
+}
+
+function drawerConfugurator(xyValues){
+  try {
+    canvas.style.display = "";
+    canvas.getContext('2d'); 
+    check = true;
 
     let x1 = document.getElementById("x1").value,
       x2 = document.getElementById("x2").value,
@@ -70,7 +84,6 @@ function isShow() {
   }
 }
 
-
 const scrnshtBtn = document.getElementById('makeScreenshot');
 if (scrnshtBtn) {
   scrnshtBtn.addEventListener('click', () => {
@@ -86,4 +99,10 @@ function saveImg() {
   } else {
     alert("Нечего сохранять :(");
   }
+}
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
 }

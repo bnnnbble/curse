@@ -14,14 +14,13 @@ function excelRunner(file){
         // Here is your object
         var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
         var json_object = JSON.stringify(XL_row_object[0]);
-        console.log(json_object);
-
+        document.cookie = encodeURIComponent("reading_xlsx_data") + '=' + encodeURIComponent(json_object);
       })
 
     };
 
     reader.onerror = function(ex) {
-      console.log(ex);
+      alert(ex);
     };
 
     reader.readAsBinaryString(file);
