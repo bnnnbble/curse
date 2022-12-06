@@ -131,10 +131,10 @@ if (scrnshtBtn) {
 }
 function saveImg() {
   if (check === true) {
-    let a = document.createElement("a");
-    a.download = "screenshot.png";
-    a.href = canvas.toDataURL("image/png");
-    a.click();
+    var canvas = document.getElementById("canvas");
+    var dataURL = canvas.toDataURL("image/png");
+    var newTab = window.open('about:blank','image from canvas');
+    newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>");
   } else {
     alert("Нечего сохранять :(");
   }
