@@ -1,6 +1,6 @@
 export default class ChartHandler{
     chart
-    scatterChart = function(x1, x2, y1, y2, xyValues) {
+    scatterChart = function(xyValues) {
         this.destroyer();
         this.chart = new Chart("canvas", {
           type: "scatter",
@@ -16,15 +16,13 @@ export default class ChartHandler{
           options: {
             legend: { display: false },
             scales: {
-              xAxes: [{ ticks: { min: Number(x1), max: Number(x2) } }],
-              yAxes: [{ ticks: { min: Number(y1), max: Number(y2) } }],
+              xAxes: [{ ticks: { min: Number(document.getElementById("x1").value), max: Number(document.getElementById("x2").value) } }],
+              yAxes: [{ ticks: { min: Number(document.getElementById("y1").value), max: Number(document.getElementById("y2").value) } }],
             },
           },
         });
     }
     lineChart= function(lxValues, lyValues) {
-        var lxValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-        var lyValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
         this.destroyer()
         this.chart = new Chart("canvas", {
           type: "line",
@@ -43,12 +41,13 @@ export default class ChartHandler{
           options: {
             legend: { display: false },
             scales: {
-              yAxes: [{ ticks: { min: 6, max: 16 } }],
+              yAxes: [{ ticks: { min: 0, max: 50 } }],
+              xAxes:[{ticks: { min: 0, max: 20}}]
             },
           },
         });
       }
-    radarChart( ryValues,rxValues, barColors) {
+    radarChart( ryValues,rxValues, barColors, fileName) {
         this.destroyer()
         this.chart = new Chart("canvas", {
           type: "pie",
@@ -64,12 +63,13 @@ export default class ChartHandler{
           options: {
             title: {
               display: true,
-              text: "World Wide Wine Production 2018",
+              text: fileName,
             },
           },
         });
     }
-    barChart(bxValues, byValues, barColors) {
+    barChart(bxValues, byValues, barColors, fileName) {
+      console.log(bxValues, byValues)
         this.destroyer()
         this.chart = new Chart("canvas", {
           type: "bar",
@@ -86,7 +86,7 @@ export default class ChartHandler{
             legend: { display: false },
             title: {
               display: true,
-              text: "World Wine Production 2018",
+              text: fileName,
             },
           },
         });
