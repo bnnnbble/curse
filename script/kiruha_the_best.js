@@ -1,6 +1,8 @@
 import ChartHandler from "./ChartHandler.js";
 window.onload = function () {
   document.cookie = encodeURIComponent("reading_xlsx_data") + "=";
+  document.cookie = encodeURIComponent("reading_xlsx_data_xy") + "=";
+  document.cookie = encodeURIComponent("fileName") + "=";
 };
 let check = false;
 
