@@ -66,6 +66,47 @@ h5 {
   text-align: center;
 }
 
+/*STATISTICS*/
+
+.statistics {
+  height: 50vh;
+  margin-top: 150px;
+  background: linear-gradient(to bottom, #ff703c 75%, #ffffff);
+}
+
+.stat {
+  padding-top: -100px;
+  display: flex;
+}
+
+.stat__item {
+  flex: 1 1 0;
+  padding: 70px 25px;
+
+  border-right: 3px solid white;
+
+  text-align: center;
+  color: white;
+}
+
+.stat__item:first-child {
+  border-left: 3px solid white;
+}
+
+.stat__count {
+  margin-bottom: 10px;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  font-size: 72px;
+}
+
+.stat__text {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
 /* INTRO */
 
 .intro {
